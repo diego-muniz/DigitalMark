@@ -1,0 +1,14 @@
+/Users/admin/Documents/dev/AgenciaDigitalMark/bin/Debug/netcoreapp2.1/DigitalMark.deps.json
+/Users/admin/Documents/dev/AgenciaDigitalMark/bin/Debug/netcoreapp2.1/DigitalMark.runtimeconfig.json
+/Users/admin/Documents/dev/AgenciaDigitalMark/bin/Debug/netcoreapp2.1/DigitalMark.runtimeconfig.dev.json
+/Users/admin/Documents/dev/AgenciaDigitalMark/bin/Debug/netcoreapp2.1/DigitalMark.dll
+/Users/admin/Documents/dev/AgenciaDigitalMark/bin/Debug/netcoreapp2.1/DigitalMark.pdb
+/Users/admin/Documents/dev/AgenciaDigitalMark/obj/Debug/netcoreapp2.1/DigitalMark.csprojAssemblyReference.cache
+/Users/admin/Documents/dev/AgenciaDigitalMark/obj/Debug/netcoreapp2.1/DigitalMark.csproj.CoreCompileInputs.cache
+/Users/admin/Documents/dev/AgenciaDigitalMark/obj/Debug/netcoreapp2.1/DigitalMark.RazorAssemblyInfo.cache
+/Users/admin/Documents/dev/AgenciaDigitalMark/obj/Debug/netcoreapp2.1/DigitalMark.RazorAssemblyInfo.cs
+/Users/admin/Documents/dev/AgenciaDigitalMark/obj/Debug/netcoreapp2.1/DigitalMark.AssemblyInfoInputs.cache
+/Users/admin/Documents/dev/AgenciaDigitalMark/obj/Debug/netcoreapp2.1/DigitalMark.AssemblyInfo.cs
+/Users/admin/Documents/dev/AgenciaDigitalMark/obj/Debug/netcoreapp2.1/DigitalMark.RazorTargetAssemblyInfo.cache
+/Users/admin/Documents/dev/AgenciaDigitalMark/obj/Debug/netcoreapp2.1/DigitalMark.dll
+/Users/admin/Documents/dev/AgenciaDigitalMark/obj/Debug/netcoreapp2.1/DigitalMark.pdb
