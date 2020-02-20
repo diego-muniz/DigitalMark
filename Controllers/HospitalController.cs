@@ -5,7 +5,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using DigitalMark.Models;
 using DigitalMark.Repositories;
-using DigitalMark.ViewModels.ProductViewModels;
+using DigitalMark.ViewModels;
+using DigitalMark.ViewModels.HospitalViewModels;
 
 namespace DigitalMark.Controllers
 {
@@ -21,7 +22,7 @@ namespace DigitalMark.Controllers
 
       [Route("v1/hospitais")]
       [HttpGet]
-      [ResponseCache(Duration = 10)]
+      // [ResponseCache(Duration = 10)]
       public IEnumerable<ListHospitalViewModel> Get() 
       {
         return _repository.Get();

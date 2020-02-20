@@ -1,20 +1,21 @@
+using System;
+using DigitalMark.Models;
 using Flunt.Notifications;
 using Flunt.Validations;
 
-namespace DigitalMark.ViewModels.HospitalViewModels
+namespace DigitalMark.ViewModels.EnfermeiroViewModels
 {
   // public class EditorHospitalViewModel : Notifiable, IValidatable
-  public class EditorHospitalViewModel
+  public class EditorEnfermeiroViewModel
   {
     public int Id { get; set; }
     public string Nome { get; set; }
-    public string CNPJ { get; set; }
-    public string Cep { get; set; }
-    public string Logradouro { get; set; }
-    public string Complemento { get; set; }
-    public string Bairro { get; set; }
-    public string Localidade { get; set; }
-    public string UF { get; set; }
+    public string CPF { get; set; }
+    public string Coren { get; set; }
+    public DateTime DataNascimento { get; set; }
+    public int HospitalId { get; set; }
+    public string Hospital { get; set; }
+
 
     // public void Validate()
     // {

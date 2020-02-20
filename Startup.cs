@@ -8,16 +8,26 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using DigitalMark.Data;
 using DigitalMark.Repositories;
+using Microsoft.Extensions.Configuration;
 
 namespace DigitalMark
 {
     public class Startup
     {
+
+        public IConfiguration Configuration {get; set;}
+
+
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
             services.AddScoped<StoreDataContext, StoreDataContext>();
             services.AddTransient<HospitalRepository, HospitalRepository>();
+            services.AddTransient<EnderecoRepository, EnderecoRepository>();
+            services.AddTransient<EnfermeiroRepository, EnfermeiroRepository>();
+            services.AddTransient<HospitalEnfermeiroRepository, HospitalEnfermeiroRepository>();
+
+            services.AddHttpClient();
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)

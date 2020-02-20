@@ -1,4 +1,4 @@
-namespace DigitalMark.ViewModels.ProductViewModels
+namespace DigitalMark.ViewModels
 {
   public class ResultViewModel
   {

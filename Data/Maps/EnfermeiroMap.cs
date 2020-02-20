@@ -14,7 +14,6 @@ namespace DigitalMark.Data.Maps
       builder.Property(x => x.Nome).IsRequired().HasMaxLength(128).HasColumnType("varchar(128)");
       builder.Property(x => x.Coren).IsRequired().HasMaxLength(19).HasColumnType("varchar(19)");
       builder.Property(x => x.DataNascimento).IsRequired();
-      builder.HasOne(x => x.Hospital).WithMany(x => x.Enfermeiro);
     }
   }
 

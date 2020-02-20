@@ -3,7 +3,7 @@ using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using DigitalMark.Data;
 using DigitalMark.Models;
-using DigitalMark.ViewModels.ProductViewModels;
+using DigitalMark.ViewModels.HospitalViewModels;
 
 namespace DigitalMark.Repositories 
 {
@@ -31,7 +31,7 @@ namespace DigitalMark.Repositories
 
     public Hospital Get(int id)
     {
-        return _context.Hospital.Find(id);
+        return _context.Hospital.FirstOrDefault(x => x.Id == id);
     }
 
     public void Save(Hospital hospital) 
@@ -45,7 +45,6 @@ namespace DigitalMark.Repositories
         _context.Entry<Hospital>(hospital).State = EntityState.Modified;
         _context.SaveChanges();
     }
-
     public void Delete(Hospital hospital) 
     {
         _context.Hospital.Remove(hospital);

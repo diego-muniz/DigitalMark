@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using DigitalMark.Models;
 
-namespace DigitalMark.ViewModels.ProductViewModels
+namespace DigitalMark.ViewModels.EnfermeiroViewModels
 {
   public class ListEnfermeiroViewModel 
   {

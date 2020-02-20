@@ -1,9 +1,12 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace DigitalMark.Models 
 {
   public class Enfermeiro {
+
+    [Key]
     public int Id { get; set; }
     public string Nome { get; set; }
     public string CPF { get; set; }
@@ -11,8 +14,7 @@ namespace DigitalMark.Models
     public DateTime DataNascimento { get; set; }
      public DateTime CreatedAt { get; set; }
     public DateTime UpdatedAt { get; set; }
-    public int HospitalId { get; set; }
-    public Hospital Hospital { get; set; }
+    public List<HospitalEnfermeiro> HospitalEnfermeiro { get; set; }
 
   }
 }

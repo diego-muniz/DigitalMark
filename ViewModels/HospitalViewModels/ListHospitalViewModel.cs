@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using DigitalMark.Models;
 
-namespace DigitalMark.ViewModels.ProductViewModels
+namespace DigitalMark.ViewModels.HospitalViewModels
 {
   public class ListHospitalViewModel 
   {
