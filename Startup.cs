@@ -26,7 +26,12 @@ namespace DigitalMark
             services.AddTransient<EnfermeiroRepository, EnfermeiroRepository>();
             services.AddTransient<HospitalEnfermeiroRepository, HospitalEnfermeiroRepository>();
 
-            services.AddCors();
+             services.AddCors(o => o.AddPolicy("MyPolicy", builder =>
+            {
+                     builder.AllowAnyOrigin()
+                            .AllowAnyMethod()
+                            .AllowAnyHeader();
+            }));
 
         }
 
@@ -37,7 +42,7 @@ namespace DigitalMark
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseCors(option => option.AllowAnyOrigin());
+            app.UseCors("MyPolicy");
 
             app.UseMvc();
         

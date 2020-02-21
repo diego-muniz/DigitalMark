@@ -35,10 +35,11 @@ namespace DigitalMark.Controllers
         return _repository.Get(id);
       }
 
-      [Route("v1/hospitais-pornome/{hospital}")]
+      [Route("v1/hospitais-pornome")]
       [HttpGet]
-      public IEnumerable<ListHospitalViewModel> ObterPorNome(string hospital) 
+      public IEnumerable<Hospital> ObterPorNome() 
       {
+        string hospital = HttpContext.Request.Query["hospital"];
         return _repository.ObterPorNome(hospital);
       }
 

@@ -18,11 +18,24 @@ namespace DigitalMark.Repositories
 
     public IEnumerable<ListHospitalEnfermeiroViewModel> Get() {
       return _context.HospitalEnfermeiro
-                       .Include(x => x.Hospital)
-                        .Include(x => x.Enfermeiro)
-                     .Select(x => new ListHospitalEnfermeiroViewModel{
-                       Enfermeiro = x.Enfermeiro,
-                       Hospital = x.Hospital
+                      .Include(x => x.Hospital)
+                      .Include(x => x.Enfermeiro)
+                      .Select(x => new ListHospitalEnfermeiroViewModel{
+                        Id = x.Id,
+                        EnfermeiroId = x.Enfermeiro.Id,
+                        HospitalId  = x.Hospital.Id,
+                        Nome = x.Enfermeiro.Nome, 
+                        CPF = x.Enfermeiro.CPF,
+                        Coren = x.Enfermeiro.Coren,
+                        DataNascimento = x.Enfermeiro.DataNascimento, 
+                        Hospital = x.Hospital.Nome,
+                        CNPJ = x.Hospital.CNPJ, 
+                        Cep = x.Hospital.Cep,
+                        UF = x.Hospital.UF,
+                        Logradouro = x.Hospital.Logradouro,
+                        Localidade = x.Hospital.Localidade,
+                        Bairro = x.Hospital.Bairro,
+                        Complemento = x.Hospital.Complemento,
                      })
                      .AsNoTracking()
                      .ToList();
@@ -34,11 +47,23 @@ namespace DigitalMark.Repositories
                        .Include(x => x.Hospital)
                         .Include(x => x.Enfermeiro)
                      .Select(x => new ListHospitalEnfermeiroViewModel{
-                       Id = x.Id,
-                       Enfermeiro = x.Enfermeiro,
-                       Hospital = x.Hospital
+                        Id = x.Id,
+                        EnfermeiroId = x.Enfermeiro.Id,
+                        HospitalId  = x.Hospital.Id,
+                        Nome = x.Enfermeiro.Nome, 
+                        CPF = x.Enfermeiro.CPF,
+                        Coren = x.Enfermeiro.Coren,
+                        DataNascimento = x.Enfermeiro.DataNascimento, 
+                        Hospital = x.Hospital.Nome,
+                        CNPJ = x.Hospital.CNPJ, 
+                        Cep = x.Hospital.Cep,
+                        UF = x.Hospital.UF,
+                        Logradouro = x.Hospital.Logradouro,
+                        Localidade = x.Hospital.Localidade,
+                        Bairro = x.Hospital.Bairro,
+                        Complemento = x.Hospital.Complemento,
                      })
-                     .FirstOrDefault(x => x.Enfermeiro.Id == id);
+                     .FirstOrDefault(x => x.EnfermeiroId == id);
     }
 
       public HospitalEnfermeiro GetHospitalEnfermeiro(int id)
