@@ -17,7 +17,6 @@ namespace DigitalMark
 
         public IConfiguration Configuration {get; set;}
 
-
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
@@ -27,7 +26,8 @@ namespace DigitalMark
             services.AddTransient<EnfermeiroRepository, EnfermeiroRepository>();
             services.AddTransient<HospitalEnfermeiroRepository, HospitalEnfermeiroRepository>();
 
-            services.AddHttpClient();
+            services.AddCors();
+
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
@@ -36,6 +36,8 @@ namespace DigitalMark
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseCors(option => option.AllowAnyOrigin());
 
             app.UseMvc();
         

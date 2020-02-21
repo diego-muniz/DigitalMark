@@ -34,6 +34,7 @@ namespace DigitalMark.Repositories
                        .Include(x => x.Hospital)
                         .Include(x => x.Enfermeiro)
                      .Select(x => new ListHospitalEnfermeiroViewModel{
+                       Id = x.Id,
                        Enfermeiro = x.Enfermeiro,
                        Hospital = x.Hospital
                      })

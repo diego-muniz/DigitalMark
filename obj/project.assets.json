@@ -11812,6 +11812,7 @@
     ".NETCoreApp,Version=v2.1": [
       "Flunt >= 1.0.4",
       "Microsoft.AspNetCore.App >= 2.1.1",
+      "Microsoft.AspNetCore.Cors >= 2.1.1",
       "Microsoft.AspNetCore.Mvc >= 2.1.1",
       "Microsoft.AspNetCore.Razor.Design >= 2.1.2",
       "Microsoft.EntityFrameworkCore >= 2.1.1",
@@ -11866,6 +11867,10 @@
             "target": "Package",
             "version": "[2.1.1, )",
             "autoReferenced": true
+          },
+          "Microsoft.AspNetCore.Cors": {
+            "target": "Package",
+            "version": "[2.1.1, )"
           },
           "Microsoft.AspNetCore.Mvc": {
             "target": "Package",

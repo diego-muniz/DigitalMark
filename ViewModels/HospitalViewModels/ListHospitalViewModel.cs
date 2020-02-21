@@ -9,6 +9,7 @@ namespace DigitalMark.ViewModels.HospitalViewModels
     public string Nome { get; set; }
     public string CNPJ { get; set; }
     public string Cep { get; set; }
+    public string Logradouro { get; set; }
 
   }
 }

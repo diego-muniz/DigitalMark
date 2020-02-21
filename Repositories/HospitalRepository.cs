@@ -23,7 +23,8 @@ namespace DigitalMark.Repositories
                 Id = x.Id,
                 Nome = x.Nome,
                 CNPJ = x.CNPJ,
-                Cep = x.Cep
+                Cep = x.Cep,
+                Logradouro = x.Logradouro
               })
               .AsNoTracking()
               .ToList();
