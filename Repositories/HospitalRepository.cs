@@ -30,6 +30,24 @@ namespace DigitalMark.Repositories
               .ToList();
     }
 
+     public IEnumerable<ListHospitalViewModel> ObterPorNome(string hospital) {
+
+      string nomeHospital = $"%{hospital}%";
+
+      return _context.Hospital
+              .Select(x => new ListHospitalViewModel
+              {
+                Id = x.Id,
+                Nome = x.Nome,
+                CNPJ = x.CNPJ,
+                Cep = x.Cep,
+                Logradouro = x.Logradouro
+              })
+              .AsNoTracking()
+              .Where(x => EF.Functions.Like(x.Nome, nomeHospital))
+              .ToList();
+    }
+
     public Hospital Get(int id)
     {
         return _context.Hospital.FirstOrDefault(x => x.Id == id);
