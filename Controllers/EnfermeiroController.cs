@@ -13,12 +13,18 @@ namespace DigitalMark.Controllers
     public class EnfermeiroController : Controller
     {
 
-      // private readonly EnfermeiroRepository _enfermeiro;
       private readonly HospitalEnfermeiroRepository _hospEnfrepository;
+      private readonly HospitalRepository _hospitalRepository;
 
-      public EnfermeiroController(HospitalEnfermeiroRepository hospEnfrepository)
+      private readonly EnfermeiroRepository _enfermeiroRepository;
+
+      public EnfermeiroController(HospitalEnfermeiroRepository hospEnfrepository,
+                                  HospitalRepository hospitalRepository,
+                                  EnfermeiroRepository enfermeiroRepository)
       {
           _hospEnfrepository = hospEnfrepository;
+          _hospitalRepository = hospitalRepository;
+          _enfermeiroRepository = enfermeiroRepository;
       }
 
       [Route("v1/enfermeiros")]
@@ -55,25 +61,21 @@ namespace DigitalMark.Controllers
 
       [Route("v1/enfermeiros")]
       [HttpPost]
-      public ResultViewModel Post([FromServices] EnfermeiroRepository _enfermeiro, 
-                                  [FromServices] HospitalRepository _hospital,
-                                  [FromBody] EditorEnfermeiroViewModel model) 
+      public ResultViewModel Post([FromBody] EditorEnfermeiroViewModel model) 
       {
 
-        // model.Validate();
-        // if (model.Invalid) {
-        //   return new ResultViewModel
-        //   {
-        //     Success = false,
-        //     Message = "Não foi possível cadastrar o produto",
-        //     Data = model.Notifications
-        //   };
-        // }
+         model.Validate();
+        if (model.Invalid) {
+          return new ResultViewModel
+          {
+            Success = false,
+            Message = "Erro ao cadastrar o enfermeiro !",
+            Data = model.Notifications
+          };
+        }
 
-        try
-        {
 
-        var hospital = _hospital.Get(model.HospitalId);
+        var hospital = _hospitalRepository.Get(model.HospitalId);
 
         if (hospital == null) {
           return new ResultViewModel
@@ -89,12 +91,12 @@ namespace DigitalMark.Controllers
           Nome = model.Nome,
           CPF = model.CPF,
           Coren = model.Coren,
-          DataNascimento = model.DataNascimento,
+          DataNascimento = model.DataNascimento.GetValueOrDefault(),
           CreatedAt = DateTime.Now,
           UpdatedAt = DateTime.Now
         };
 
-        _enfermeiro.Save(enfermeiro);
+        _enfermeiroRepository.Save(enfermeiro);
 
         var hospEnfermeiro = new HospitalEnfermeiro() {
           HospitalId = model.HospitalId,
@@ -122,12 +124,7 @@ namespace DigitalMark.Controllers
           Data = enfViewModel
         };
         }
-      catch (Exception ex)
-      {
-        throw new Exception(ex.Message);
-      }
 
-      }
 
       [Route("v1/enfermeiros")]
       [HttpPut]
@@ -153,7 +150,7 @@ namespace DigitalMark.Controllers
           {
             Success = false,
             Message = "Hospital não encontrado !",
-            Data = null
+            Data = model.Notifications
           };
         }
 
@@ -171,7 +168,7 @@ namespace DigitalMark.Controllers
           enfermeiro.Nome = model.Nome != null ? model.Nome : enfermeiro.Nome ;
           enfermeiro.CPF = model.CPF != null ? model.CPF : enfermeiro.CPF ;
           enfermeiro.Coren = model.Coren != null ? model.Coren : enfermeiro.Coren ;
-          enfermeiro.DataNascimento = model.DataNascimento != null ? model.DataNascimento : enfermeiro.DataNascimento ;
+          enfermeiro.DataNascimento = model.DataNascimento.GetValueOrDefault() != null ? model.DataNascimento.GetValueOrDefault() : enfermeiro.DataNascimento ;
           enfermeiro.UpdatedAt = DateTime.Now;
 
         _enfermeiro.Update(enfermeiro);

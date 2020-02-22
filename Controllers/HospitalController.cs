@@ -48,15 +48,15 @@ namespace DigitalMark.Controllers
       public ResultViewModel Post([FromBody] EditorHospitalViewModel model) 
       {
 
-        // model.Validate();
-        // if (model.Invalid) {
-        //   return new ResultViewModel
-        //   {
-        //     Success = false,
-        //     Message = "Não foi possível cadastrar o produto",
-        //     Data = model.Notifications
-        //   };
-        // }
+        model.Validate();
+        if (model.Invalid) {
+          return new ResultViewModel
+          {
+            Success = false,
+            Message = "Erro ao cadastrar o hospital !",
+            Data = model.Notifications
+          };
+        }
 
         var hospital = new Hospital() {
           Nome = model.Nome,
@@ -86,15 +86,15 @@ namespace DigitalMark.Controllers
       public ResultViewModel Put([FromBody] EditorHospitalViewModel model) 
       {
 
-        // model.Validate();
-        // if (model.Invalid) {
-        //   return new ResultViewModel
-        //   {
-        //     Success = false,
-        //     Message = "Não foi possível cadastrar o produto",
-        //     Data = model.Notifications
-        //   };
-        // }
+        model.Validate();
+        if (model.Invalid) {
+          return new ResultViewModel
+          {
+            Success = false,
+            Message = "Erro ao editar o hospital",
+            Data = model.Notifications
+          };
+        }
 
         var hospital = _repository.Get(model.Id);
           hospital.Nome = model.Nome;
